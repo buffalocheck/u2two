@@ -40,6 +40,8 @@ app.get('/profile', isLoggedIn, function(req, res) {
 //Controlers
 app.use('/auth', require('./controllers/auth'));
 
+app.use('/picks', isLoggedIn, require('./controllers/picks'));
+
 //Listen
 
 app.listen(3000);

@@ -13,7 +13,7 @@ router.post('/login', passport.authenticate('local', {
     successRedirect: '/profile',
     successFlash: 'Winner winner - chicken dinner! Logged in.',
     failureRedirect: '/auth/login',
-    failureFlash: 'Wah wah... try again.'
+    failureFlash: 'Wah wah... try logging in again.'
 }));
 
 router.get('/signup', function(req, res) {
@@ -33,13 +33,13 @@ router.post('/signup', function(req, res, next) {
             //good!
             passport.authenticate('local', {
                 successRedirect: '/profile',
-                successFlash: 'Account created & logged in, yo!',
+                successFlash: 'Your account has been created & you\'re logged in, yo!',
                 failureRedirect: '/login',
-                failureFlash: 'Unknown error occured. Please re-log in.'
+                failureFlash: 'Wah wah... an unknown error occured. Please re-log in.'
             })(req, res, next);
         } else {
             //Bad!
-            req.flash('error', 'Email already exists. Please log in, yo!');
+            req.flash('error', 'That email already exists, yo! Please log in with it.');
             res.redirect('/auth/login');
         }
     }).catch(function(error) {
@@ -50,7 +50,7 @@ router.post('/signup', function(req, res, next) {
 
 router.get('/logout', function(req, res) {
     req.logout();
-    req.flash('success', 'You logged out.');
+    req.flash('success', 'You are logged out.');
     res.redirect('/');
 });
 
@@ -61,9 +61,9 @@ router.get('/facebook', passport.authenticate('facebook', {
 
 router.get('/callback/facebook', passport.authenticate('facebook', {
     successRedirect: '/profile',
-    successFlash: 'You are logged in !',
+    successFlash: 'You\'ve logged in. Get your picks in!',
     failureRedirect: '/auth/login',
-    failureFlash: 'Nice try, Facebook says no'
+    failureFlash: 'Ug...Facebook says no'
 }));
 
 //Export
