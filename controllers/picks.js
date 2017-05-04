@@ -12,6 +12,19 @@ router.get("/", function(req, res) {
     });
     // res.render("picks", {data: })
 });
+router.get("/mypicks", function(req, res) {
+    db.picks.findAll({
+        where: { userId: req.user.id },
+        // include: [db.matchup]
+    }).then(function(picks) {
+        console.log(picks)
+        res.render('myPicks', { picks: picks });
+    });
+
+});
+router.get("/:weekNum", function(req, res) {
+    //on hold
+});
 
 //post here
 router.post("/", function(req, res) {
