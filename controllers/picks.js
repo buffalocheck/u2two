@@ -1,9 +1,16 @@
 //Requires & global var's
 var express = require('express');
 var router = express.Router();
+var db = require("../models");
 //set up route here
 router.get("/", function(req, res) {
-    res.render("picks")
+    //db.mytable.find(where).then(function(data){});
+    db.picks.find({
+        where: { matchId: 4 }
+    }).then(function(allpicks) {
+        res.render('picks', { allpicks: allpicks });
+    });
+    // res.render("picks", {data: })
 });
 
 //post here

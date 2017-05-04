@@ -38,12 +38,13 @@ passport.use(new facebookStrategy({
     //See if we get the email
     var email = profile.emails ? profile.emails[0].value : null;
 
-    //See if the user exists in the databass
+    //See if the user exists in the database
     db.user.findOne({
         where: { email: email }
     }).then(function(existingUser) {
-        //Thi sperson has logged in before
+        //This sperson has logged in before
         if (existingUser && email) {
+
             existingUser.updateAttributes({
                 facebookId: profile.id,
                 facebookToken: accessToken

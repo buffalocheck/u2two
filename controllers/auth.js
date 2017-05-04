@@ -10,7 +10,7 @@ router.get('/login', function(req, res) {
 });
 
 router.post('/login', passport.authenticate('local', {
-    successRedirect: '/profile',
+    successRedirect: '/picks',
     successFlash: 'Winner winner - chicken dinner! Logged in.',
     failureRedirect: '/auth/login',
     failureFlash: 'Wah wah... try logging in again.'
@@ -32,7 +32,7 @@ router.post('/signup', function(req, res, next) {
         if (wasCreated) {
             //good!
             passport.authenticate('local', {
-                successRedirect: '/profile',
+                successRedirect: '/picks',
                 successFlash: 'Your account has been created & you\'re logged in, yo!',
                 failureRedirect: '/login',
                 failureFlash: 'Wah wah... an unknown error occured. Please re-log in.'
@@ -60,7 +60,7 @@ router.get('/facebook', passport.authenticate('facebook', {
 }));
 
 router.get('/callback/facebook', passport.authenticate('facebook', {
-    successRedirect: '/profile',
+    successRedirect: '/picks',
     successFlash: 'You\'ve logged in. Get your picks in!',
     failureRedirect: '/auth/login',
     failureFlash: 'Ug...Facebook says no'

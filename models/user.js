@@ -21,7 +21,8 @@ module.exports = function(sequelize, DataTypes) {
         },
         classMethods: {
             associate: function(models) {
-                // Associations can be defined here
+                // Associations can be defined here - one to many
+                models.user.hasMany(models.picks);
             }
         },
         instanceMethods: {
