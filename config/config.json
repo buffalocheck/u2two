@@ -1,16 +1,16 @@
 {
     "development": {
-        "database": "pool_app_development",
+        "database": "cfb_development",
         "host": "127.0.0.1",
         "dialect": "postgres"
     },
     "test": {
-        "database": "pool_app_test",
+        "database": "cfb_test",
         "host": "127.0.0.1",
         "dialect": "postgres"
     },
     "production": {
-     "use_env_variable": "DATABASE_URL"
- }
+        "use_env_variable": "DATABASE_URL"
+    }
 
 }

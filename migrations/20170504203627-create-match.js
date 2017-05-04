@@ -1,29 +1,44 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('universities', {
+    return queryInterface.createTable('matches', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      uNickName: {
+      week: {
+        type: Sequelize.INTEGER
+      },
+      date: {
         type: Sequelize.STRING
       },
-      uName: {
+      day: {
         type: Sequelize.STRING
       },
-      uMascot: {
+      title: {
         type: Sequelize.STRING
       },
-      uColor1: {
-        type: Sequelize.STRING
+      visId: {
+        type: Sequelize.INTEGER
       },
-      uColorBg: {
-        type: Sequelize.STRING
+      homeId: {
+        type: Sequelize.INTEGER
       },
-      confId: {
+      visScore: {
+        type: Sequelize.INTEGER
+      },
+      homeScore: {
+        type: Sequelize.INTEGER
+      },
+      spread: {
+        type: Sequelize.INTEGER
+      },
+      openTimeEt: {
+        type: Sequelize.INTEGER
+      },
+      closeTimeEt: {
         type: Sequelize.INTEGER
       },
       createdAt: {
@@ -37,6 +52,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('universities');
+    return queryInterface.dropTable('matches');
   }
 };

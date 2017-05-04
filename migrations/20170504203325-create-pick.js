@@ -1,15 +1,27 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('conferences', {
+    return queryInterface.createTable('picks', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      confName: {
-        type: Sequelize.STRING
+      userId: {
+        type: Sequelize.INTEGER
+      },
+      matchId: {
+        type: Sequelize.INTEGER
+      },
+      choice: {
+        type: Sequelize.INTEGER
+      },
+      confidence: {
+        type: Sequelize.INTEGER
+      },
+      week: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -22,6 +34,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('conferences');
+    return queryInterface.dropTable('picks');
   }
 };
