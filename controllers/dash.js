@@ -32,8 +32,8 @@ router.get("/mypicks", function(req, res) {
     });
     //end
 });
-router.get("/:weekNum", function(req, res) {
-    //on hold
+router.get("/myPicks/:weekNum", function(req, res) {
+    //on hold - req.params.week
 });
 
 //post here
