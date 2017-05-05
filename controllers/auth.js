@@ -6,7 +6,7 @@ var router = express.Router();
 
 // Routes
 router.get('/login', function(req, res) {
-    res.render('logInForm');
+    res.render('loginForm');
 });
 
 router.post('/login', passport.authenticate('local', {

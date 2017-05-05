@@ -16,9 +16,15 @@ router.get("/", function(req, res) {
         });
     });
 });
-router.get("/thisweekspics", function(req, res) {
-    res.render("thisWeeksPics.ejs");
-})
+router.get("/wklyOverview", function(req, res) {
+    res.render("wklyOverview.ejs");
+});
+router.get("/standings", function(req, res) {
+    res.render("standings.ejs");
+});
+router.get("/otherPlayers", function(req, res) {
+    res.render("otherPlayers.ejs");
+});
 router.get("/mypicks", function(req, res) {
     //start
     db.user.find({
