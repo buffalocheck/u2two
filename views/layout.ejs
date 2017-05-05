@@ -11,25 +11,31 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="/styles/style.css">
 
 </head>
 <body>
+<div id="bgMaster">
 <div class="container">
 <div id="alerts">
 <% include partials/alerts %>
 </div>
 <%- body %>
-<hr>
+<div id="pageBottom">
 
-<% if(!currentUser) { %>
-<a href="/auth/login" class="btn btn-primary">Login</a>
-<a href="/auth/signup" class="btn btn-success">Sign Up!</a>
-<% } else { %>
-<!-- <a href="/" class="btn btn-btn-primary">Home</a> -->
-<a href="/dash" class="btn btn-info">Dash</a>
-<a href="/profile" class="btn btn-info">Profile</a>
-<a href="/auth/logout" class="btn btn-danger">Logout, <%= currentUser.firstName %></a>
-<% } %>
+	<% if(!currentUser) { %>
+	<a href="/auth/login" class="btn btn-primary">Login</a>
+	<a href="/auth/signup" class="btn btn-success">Sign Up!</a>
+	<% } else { %>
+	<!-- <a href="/" class="btn btn-btn-primary">Home</a> -->
+	<div id="footer">
+	<a href="/dash" class="btn btn-info">Dash</a>
+	<a href="/profile" class="btn btn-info">Profile</a>
+	<a href="/auth/logout" class="btn btn-danger">Logout, <%= currentUser.firstName %></a>
+	</div>
+	<% } %>
+</div>
+</div>
 </div>
 <script src="/js/main.js"></script>
 </body>

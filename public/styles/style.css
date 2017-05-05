@@ -1,0 +1,32 @@
+h1 {
+    text-align: center;
+}
+
+.container {
+    padding: 3% 10%;
+    margin: none;
+}
+
+.btn-danger {
+    background-color: orange;
+    border-color: orange;
+}
+
+#bgMaster {
+    background-image: url(/images/bg3.jpg);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    overflow: auto;
+    background-size: cover;
+}
+
+#footer {
+    padding: 5%;
+    background-color: rgba(159, 160, 159, .5);
+}

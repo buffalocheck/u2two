@@ -3,8 +3,7 @@ $(function() {
         toggle: false
     });
 
-    $("#alerts").fadeTo(1000, 300).slideUp(300, function() {
+    $("#alerts").fadeTo(1500, 300).slideUp(300, function() {
         $("#alerts").slideUp(300);
     });
-
 });
