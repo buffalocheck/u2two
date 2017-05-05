@@ -2,6 +2,7 @@ var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
 var facebookStrategy = require('passport-facebook').Strategy;
 var db = require('../models');
+require("dotenv").config();
 
 passport.serializeUser(function(user, cb) {
     cb(null, user.id);

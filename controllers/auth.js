@@ -10,8 +10,8 @@ router.get('/login', function(req, res) {
 });
 
 router.post('/login', passport.authenticate('local', {
-    successRedirect: '/picks',
-    successFlash: 'Winner winner - chicken dinner! Logged in.',
+    successRedirect: '/dash',
+    successFlash: 'Nice, you\'re logged in!',
     failureRedirect: '/auth/login',
     failureFlash: 'Wah wah... try logging in again.'
 }));
@@ -26,13 +26,14 @@ router.post('/signup', function(req, res, next) {
         defaults: {
             'firstName': req.body.firstName,
             'lastName': req.body.lastName,
-            'password': req.body.password
+            'password': req.body.password,
+            'handle': req.body.handle,
         }
     }).spread(function(user, wasCreated) {
         if (wasCreated) {
             //good!
             passport.authenticate('local', {
-                successRedirect: '/picks',
+                successRedirect: '/dash',
                 successFlash: 'Your account has been created & you\'re logged in, yo!',
                 failureRedirect: '/login',
                 failureFlash: 'Wah wah... an unknown error occured. Please re-log in.'

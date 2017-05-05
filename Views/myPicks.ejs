@@ -1,0 +1,8 @@
+<% picks.forEach(function(pick) {%>
+
+<p>Week: <%= pick.match.week %></p>
+<p>Day: <%= pick.match.day %></p>
+<p>Game: <%= pick.match.title %></p>
+<p>You picked the <%= pick.choice == 2 ? "VISITING" : "HOME" %> team.</p>
+
+<%})%>
