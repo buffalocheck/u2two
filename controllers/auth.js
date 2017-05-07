@@ -51,7 +51,7 @@ router.post('/signup', function(req, res, next) {
 
 router.get('/logout', function(req, res) {
     req.logout();
-    req.flash('success', 'You are logged out.');
+    req.flash('success', 'Bye bye!');
     res.redirect('/');
 });
 
@@ -61,8 +61,8 @@ router.get('/facebook', passport.authenticate('facebook', {
 }));
 
 router.get('/callback/facebook', passport.authenticate('facebook', {
-    successRedirect: '/picks',
-    successFlash: 'You\'ve logged in. Get your picks in!',
+    successRedirect: '/dash',
+    successFlash: 'You\'re in. Get your picks in!',
     failureRedirect: '/auth/login',
     failureFlash: 'Ug...Facebook says no'
 }));

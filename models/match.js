@@ -10,8 +10,8 @@ module.exports = function(sequelize, DataTypes) {
         visScore: DataTypes.INTEGER,
         homeScore: DataTypes.INTEGER,
         spread: DataTypes.INTEGER,
-        openTimeEt: DataTypes.INTEGER,
-        closeTimeEt: DataTypes.INTEGER
+        openTimeEt: DataTypes.STRING,
+        closeTimeEt: DataTypes.STRING
     }, {
         classMethods: {
             associate: function(models) {

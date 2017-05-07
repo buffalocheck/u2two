@@ -2,6 +2,10 @@ h1 {
     text-align: center;
 }
 
+.card {
+    background-color: rgba(255, 255, 255, .8);
+}
+
 .container {
     padding: 3% 10%;
     margin: none;

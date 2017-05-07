@@ -3,7 +3,7 @@ $(function() {
         toggle: false
     });
 
-    $("#alerts").fadeTo(1500, 300).slideUp(300, function() {
-        $("#alerts").slideUp(300);
+    $("#alerts").fadeTo(2000, 500).slideUp(500, function() {
+        $("#alerts").slideUp(500);
     });
 });
