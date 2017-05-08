@@ -2,6 +2,9 @@
 ..
 Thanks for stopping by this readMe page.
 
+This site is to be used for a sports pool for college football games. A player creates an account, picks the winners of each week's games and ranks those picks in order of confidence (1 confidence point being the least & the highest number being the most). At the end of each week the player with the most confidence points based on his/her picks wins the week.
+
+Requirements:
 Deployed on Heroku
 At least 1 API
 At least 2 Models
