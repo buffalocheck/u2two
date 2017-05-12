@@ -24,11 +24,13 @@
 <div id="pageBottom">
 
 	<% if(!currentUser) { %>
+	<div class="buttons text-center">
 	<a href="/auth/login" class="btn btn-primary">Login</a>
 	<a href="/auth/signup" class="btn btn-success">Sign Up!</a>
+	</div>
 	<% } else { %>
 	<!-- <a href="/" class="btn btn-btn-primary">Home</a> -->
-	<div id="footer">
+	<div id="footer" class="text-center">
 	<a href="/dash" class="btn btn-info">Dash</a>
 	<a href="/profile" class="btn btn-info">Profile</a>
 	<a href="/auth/logout" class="btn btn-danger">Logout, <%= currentUser.firstName %></a>

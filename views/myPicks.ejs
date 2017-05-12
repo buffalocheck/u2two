@@ -1,31 +1,41 @@
 <h1>My Picks</h1>
 
-<% picks.forEach(function(pick) {%>
-
-<p>Week: <%= pick.match.week %></p>
-<p>Day: <%= pick.match.day %></p>
-<p>Game: <%= pick.match.title %></p>
-<p>You picked the <%= pick.choice == 2 ? "VISITING" : "HOME" %> team.</p>
-
-<%})%>
-
-    <p>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#myCCFBPicksWk1" aria-expanded="false" aria-controls="myCCFBPicksWk1">
-    Week 1
+<% allMatches.forEach(function(match) {%>
+<p>
+  <button
+    class="btn btn-primary"
+    type="button"
+    data-toggle="collapse"
+    data-target="#myCCFBPicks<%= match.id %>"
+    aria-expanded="false"
+    aria-controls="myCCFBPicks<%= match.id %>"
+    >
+    Week <%= match.week %> - <%= match.title%>
   </button>
 </p>
-<div class="collapse" id="myCCFBPicksWk1">
+<div class="collapse" id="myCCFBPicks<%= match.id %>">
   <div class="card card-block">
-<form action="" method="POST">
-  <label>***GAME TITLE***</label>
-  <select name="choice">***visId or homeID***</select>
-  <select name="choice">***confidence: 1 - length***</select>
-
-  <input type="submit" name="submit">
-</form>
+    <form action="/dash/myPicks/<%= match.week %>" method="POST">
+      <label><%= match.title %></label>
+      <select name="choice">
+       <option value="">
+              Make Pick
+        </option>
+        <option value="<%= match.visId %>">
+              visitor
+        </option>
+        <option value="<%= match.homeId %>">
+              home
+        </option>
+      </select>
+       <input type="hidden" name="matchId" value="<%= match.id %>">
+<!--       <select name="choice">***confidence: 1 - length***</select> -->
+      <input type="submit" name="submit">
+    </form>
   </div>
 </div>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#myCCFBPicksWk2" aria-expanded="false" aria-controls="myCCFBPicksWk2">
+<%})%>
+<!-- <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#myCCFBPicksWk2" aria-expanded="false" aria-controls="myCCFBPicksWk2">
     Week 2
   </button>
 </p>
@@ -140,8 +150,8 @@
 <div class="collapse" id="myCCFBPicksWk14">
   <div class="card card-block">
 <p>Form for Conference Championships picks here!</p>
-  </div>
-</div>
+  </div> -->
+<!-- </div> -->
 
 
 

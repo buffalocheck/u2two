@@ -1,14 +1,14 @@
 <h1>Profile</h1>
-<form action="" method="PUT">
+<form action="/profile" method="PUT" id="profileForm">
   <label>First Name</label><br>
-  <input name="firstName" placeholder="value.firstName"></input><br>
+  <input name="firstName" value="<%= currentUser.firstName %>"></input><br>
 <label>Last Name</label><br>
-  <input name="lastName" placeholder="value.lastName"></input><br>
+  <input name="lastName" value="<%= currentUser.lastName %>"></input><br>
   <label>Email</label><br>
-  <input name="lastName" placeholder="value.email"></input><br>
-    <label>Password</label><br>
-  <input name="password" placeholder="value.password"></input><br>
+  <input name="email" value="<%= currentUser.email %>"></input><br>
+    <!-- <label>Password</label><br>
+  <input name="password" value="<%= currentUser.password %>"></input><br> -->
     <label>Handle</label><br>
-  <input name="handle" placeholder="value.handle"></input><br><br>
+  <input name="handle" value="<%= currentUser.handle %>"></input><br><br>
   <input type="submit" name="submit">
 </form>

@@ -25,26 +25,44 @@ router.get("/standings", function(req, res) {
 router.get("/otherPlayers", function(req, res) {
     res.render("otherPlayers.ejs");
 });
-router.get("/mypicks", function(req, res) {
+router.get("/myPicks", function(req, res) {
     //start
-    db.user.find({
-        where: { id: req.user.id },
-    }).then(function(user) {
-        user.getPicks({
-            include: [db.match]
-        }).then(function(picks) {
-            res.render("myPicks", { picks: picks });
+    db.match.findAll()
+        .then(function(allMatches) {
+            console.log(allMatches);
+            res.render("myPicks", { allMatches: allMatches, picks: [] });
         });
-    });
+    // db.user.find({
+    //     where: { id: req.user.id },
+    // }).then(function(user) {
+    //     user.getPicks({
+    //         include: [db.match]
+    //     }).then(function(picks) {
+    //         res.render("myPicks", { picks: picks });
+    //     });
+    // });
     //end
 });
 router.get("/myPicks/:weekNum", function(req, res) {
-    //on hold - req.params.week
+    //on hold - req.params.weekNum
+    //find the matches for that week
+    // show those picks for that week & user
+
 });
 
 //post here
-router.post("/", function(req, res) {
-    res.send("Post is working!")
+router.post("/myPicks/:weekNum", function(req, res) {
+    console.log(req.params.weekNum);
+    console.log(req.body);
+    db.pick.create({
+            userId: parseInt(req.user.id),
+            matchId: parseInt(req.body.matchId),
+            choice: parseInt(req.body.choice),
+            week: parseInt(req.params.weekNum)
+        })
+        .then(function(pick) {
+            res.redirect('/dash/myPicks');
+        });
 });
 //put here
 router.put("/", function(req, res) {
