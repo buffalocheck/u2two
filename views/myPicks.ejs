@@ -1,6 +1,7 @@
 <h1>My Picks</h1>
 
-<% allMatches.forEach(function(match) {%>
+
+<% weeklyMatches.forEach(function(match) {%>
 <p>
   <button
     class="btn btn-primary"
@@ -10,7 +11,7 @@
     aria-expanded="false"
     aria-controls="myCCFBPicks<%= match.id %>"
     >
-    Week <%= match.week %> - <%= match.title%>
+    <%= match.title%>
   </button>
 </p>
 <div class="collapse" id="myCCFBPicks<%= match.id %>">
@@ -29,6 +30,7 @@
         </option>
       </select>
        <input type="hidden" name="matchId" value="<%= match.id %>">
+       <input type="hidden" name="week" value="<%= match.week%>">
 <!--       <select name="choice">***confidence: 1 - length***</select> -->
       <input type="submit" name="submit">
     </form>

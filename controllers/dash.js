@@ -44,10 +44,11 @@ router.get("/myPicks", function(req, res) {
     //end
 });
 router.get("/myPicks/:weekNum", function(req, res) {
-    //on hold - req.params.weekNum
-    //find the matches for that week
-    // show those picks for that week & user
-
+    db.match.findAll({ where: { week: req.params.weekNum } }).then(function(weeklyMatches) {
+        res.render('myPicks', { weeklyMatches: weeklyMatches });
+    }).catch(function(err) {
+        res.status(500).render('error');
+    });
 });
 
 //post here
@@ -58,10 +59,10 @@ router.post("/myPicks/:weekNum", function(req, res) {
             userId: parseInt(req.user.id),
             matchId: parseInt(req.body.matchId),
             choice: parseInt(req.body.choice),
-            week: parseInt(req.params.weekNum)
+            week: parseInt(req.body.week)
         })
         .then(function(pick) {
-            res.redirect('/dash/myPicks');
+            res.redirect('/dash/myPicks/' + req.params.weekNum);
         });
 });
 //put here
