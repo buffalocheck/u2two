@@ -1,5 +1,6 @@
 h1 {
     text-align: center;
+    margin-bottom: 1rem;
 }
 
 .card {
@@ -12,9 +13,6 @@ h1 {
 }
 
 .btn-warning {
-    /*    background-color: orange;
-    border-color: orange;
-*/
     margin-bottom: 1rem;
 }
 
@@ -40,12 +38,36 @@ h1 {
     background-size: cover;
 }
 
-#footer {
+
+/*#footer {
     padding: 5%;
     background-color: rgba(159, 160, 159, .5);
 }
+*/
 
 .btn-info {
     margin-bottom: 1rem;
     display: inline-block;
+}
+
+label {
+    font-size: 1.2rem;
+    color: #000;
+    /*    text-shadow: -1px 0 #000, 0 1px #000, 0 -1px #000;*/
+}
+
+.row {}
+
+.picks-card {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.card-block {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
 }
